@@ -15,16 +15,12 @@ jobs:
       - name: Checkout do Código
         uses: actions/checkout@v5
 
-      - name: Instalar K6 no Runner
-        run: |
-          sudo gpg -k
-          sudo gpg --no-default-keyring --keyring /usr/share/keyrings/k6-archive-keyring.gpg --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys C5AD171747432060AACF4A3EE81CA77025C65319
-          echo "deb [signed-by=/usr/share/keyrings/k6-archive-keyring.gpg] https://dl.k6.io/deb stable main" | sudo tee /etc/apt/sources.list.d/k6.list
-          sudo apt-get update
-          sudo apt-get install k6 -y
+      - name: Executar Smoke Test (k6)
+        uses: grafana/k6-action@v0.5.0
+        with:
+          filename: tests/smoke-test.js
 
-      - name: Executar Smoke Test
-        run: k6 run tests/smoke-test.js
-
-      - name: Executar Load Test
-        run: k6 run tests/load-test.js
+      - name: Executar Load Test (k6)
+        uses: grafana/k6-action@v0.5.0
+        with:
+          filename: tests/load-test.js
