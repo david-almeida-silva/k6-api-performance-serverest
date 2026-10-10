@@ -1,0 +1,19 @@
+{
+  "name": "k6-api-performance-serverest",
+  "version": "1.0.0",
+  "description": "Suíte de testes de performance e carga com K6 na API ServeRest",
+  "main": "tests/load-test.js",
+  "scripts": {
+    "test:smoke": "k6 run tests/smoke-test.js",
+    "test:load": "k6 run tests/load-test.js"
+  },
+  "keywords": [
+    "k6",
+    "performance",
+    "load-testing",
+    "qa",
+    "serverest"
+  ],
+  "author": "",
+  "license": "ISC"
+}
