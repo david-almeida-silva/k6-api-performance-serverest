@@ -16,11 +16,11 @@ jobs:
         uses: actions/checkout@v5
 
       - name: Executar Smoke Test (k6)
-        uses: grafana/k6-action@v0.4.0
+        uses: grafana/k6-action@v0
         with:
           filename: tests/smoke-test.js
 
       - name: Executar Load Test (k6)
-        uses: grafana/k6-action@v0.4.0
+        uses: grafana/k6-action@v0
         with:
           filename: tests/load-test.js
